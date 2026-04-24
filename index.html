@@ -6,181 +6,200 @@
 <title>上海富码科技有限公司 | FuMa Dev</title>
 
 <style>
-:root{
-    --primary:#2563eb;
-    --dark:#020617;
+:root {
+    --primary: #2563eb;
+    --dark: #0f172a;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+}
 
-body{
-    background:#020617;
-    color:#fff;
+body {
+    background: #f8fafc;
+    color: #333;
 }
 
 /* Navbar */
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 40px;
-    backdrop-filter: blur(10px);
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.logo img{
-    width:26px;
-    height:26px;
-    border-radius:6px;
+.logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
 }
 
-.menu{
-    display:flex;
-    gap:20px;
+.logo-text {
+    font-weight: bold;
+    font-size: 18px;
 }
 
-.menu a{
-    color:#ccc;
-    text-decoration:none;
+.menu {
+    display: flex;
+    gap: 25px;
 }
 
-.cta-btn{
-    background:var(--primary);
-    padding:8px 16px;
-    border-radius:6px;
-    color:#fff;
+.menu a {
+    text-decoration: none;
+    color: #333;
+}
+
+.menu a:hover {
+    color: var(--primary);
 }
 
 /* Hero */
-.hero{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:100px 40px;
-    flex-wrap:wrap;
+.hero {
+    background: linear-gradient(135deg, #0f172a, #2563eb);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 40px;
+    flex-wrap: wrap;
 }
 
-.hero-left{
-    max-width:520px;
+.hero-left {
+    max-width: 550px;
 }
 
-.hero h1{
-    font-size:42px;
-    margin-bottom:20px;
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
 }
 
-.hero p{
-    color:#aaa;
-    line-height:1.7;
+.hero p {
+    opacity: 0.9;
+    line-height: 1.7;
 }
 
-.btn{
-    display:inline-block;
-    padding:14px 26px;
-    border-radius:8px;
-    margin-top:25px;
-    text-decoration:none;
+.hero-buttons {
+    margin-top: 25px;
 }
 
-.btn-primary{
-    background:var(--primary);
-    color:#fff;
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-right: 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.btn-outline{
-    border:1px solid #555;
-    color:#fff;
-    margin-left:10px;
+.btn-primary {
+    background: #fff;
+    color: #2563eb;
 }
 
-.hero-right img{
-    width:220px;
+.btn-outline {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+/* Hero Right Image */
+.hero-right img {
+    width: 320px;
+    max-width: 100%;
 }
 
 /* Section */
-section{
-    max-width:1100px;
-    margin:auto;
-    padding:80px 20px;
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 70px 20px;
 }
 
-h2{
-    text-align:center;
-    margin-bottom:40px;
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-/* Cards */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+/* Services */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
 }
 
-.card{
-    background:rgba(255,255,255,0.03);
-    padding:25px;
-    border-radius:16px;
-    border:1px solid rgba(255,255,255,0.05);
-    transition:.3s;
+.card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-    border-color:rgba(37,99,235,0.6);
+.card:hover {
+    transform: translateY(-6px);
 }
 
-/* 流程 */
-.steps{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    text-align:center;
+.card h3 {
+    color: var(--primary);
 }
 
-/* 表单 */
-.form-box{
-    max-width:500px;
-    margin:auto;
-}
-
-input, textarea{
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    border-radius:6px;
-    border:none;
-}
-
-button{
-    width:100%;
-    padding:14px;
-    margin-top:15px;
-    border:none;
-    background:var(--primary);
-    color:#fff;
-    border-radius:8px;
-    font-size:16px;
+/* Contact */
+.contact {
+    text-align: center;
+    line-height: 2;
 }
 
 /* Footer */
-footer{
-    text-align:center;
-    padding:40px;
-    color:#777;
+footer {
+    background: var(--dark);
+    color: #aaa;
+    text-align: center;
+    padding: 30px;
+}
+
+/* Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Mobile */
 @media(max-width:768px){
-    .hero{
-        flex-direction:column;
-        text-align:center;
+    nav {
+        padding: 15px 20px;
     }
-    .hero h1{font-size:30px;}
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-right {
+        margin-top: 30px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
 }
 </style>
 </head>
@@ -190,111 +209,100 @@ footer{
 <!-- Navbar -->
 <nav>
     <div class="logo">
-        <img src="logo.png">
-        <div>FuMa Dev</div>
+        <img src="logo.png" alt="FuMa Dev Logo">
+        <div class="logo-text">FuMa Dev</div>
     </div>
 
     <div class="menu">
-        <a href="#services">业务</a>
-        <a href="#process">流程</a>
-        <a href="#contact">联系</a>
-        <a href="#contact" class="cta-btn">立即咨询</a>
+        <a href="#about">关于我们</a>
+        <a href="#services">核心业务</a>
+        <a href="#contact">联系方式</a>
     </div>
 </nav>
 
 <!-- Hero -->
 <div class="hero">
     <div class="hero-left">
-        <h1>帮你把产品快速上线</h1>
+        <h1>上海富码科技有限公司</h1>
         <p>
-        专注 App开发 · 软件定制 · 技术咨询<br><br>
-        从0到1搭建产品，帮助企业低成本、高效率实现数字化
+        App开发 · 软件定制 · 技术咨询<br><br>
+        我们专注于为客户提供专业、高效、可靠的技术解决方案，
+        助力企业在数字时代持续增长。
         </p>
 
-        <a href="#contact" class="btn btn-primary">免费获取方案</a>
-        <a href="#services" class="btn btn-outline">了解服务</a>
+        <div class="hero-buttons">
+            <a href="#services" class="btn btn-primary">了解更多</a>
+            <a href="#contact" class="btn btn-outline">联系我们</a>
+        </div>
     </div>
 
     <div class="hero-right">
-        <img src="logo.png">
+        <!-- 主视觉ICON -->
+        <img src="logo.png" alt="Icon">
     </div>
 </div>
 
-<!-- 信任 -->
-<section>
-<h2>为什么选择富码科技</h2>
-<div class="grid">
-    <div class="card">
-        <h3>🚀 快速交付</h3>
-        <p>最快2-4周完成MVP上线</p>
-    </div>
-    <div class="card">
-        <h3>💼 大厂经验</h3>
-        <p>核心成员来自互联网公司</p>
-    </div>
-    <div class="card">
-        <h3>💰 成本可控</h3>
-        <p>比自建团队节省70%成本</p>
-    </div>
-</div>
+<!-- About -->
+<section id="about" class="fade-in">
+    <h2>关于我们</h2>
+    <p>
+    上海富码科技有限公司（FuMa Dev）是一家专注于移动应用开发与软件技术服务的创新型企业。
+    我们成立于上海，团队核心成员拥有多年互联网大厂及创业公司经验。
+    </p>
+    <br>
+    <p>
+    我们相信，技术不仅仅是代码的堆砌，更是解决问题的工具。
+    无论是初创团队的产品MVP（最小可行产品），还是成熟企业的数字化转型需求，
+    富码科技都能提供专业、高效、可靠的技术解决方案。
+    </p>
 </section>
 
 <!-- Services -->
-<section id="services">
-<h2>核心服务</h2>
-<div class="grid">
-    <div class="card">
-        <h3>App开发</h3>
-        <p>iOS / Android / 跨平台</p>
+<section id="services" class="fade-in">
+    <h2>核心业务</h2>
+    <div class="services">
+        <div class="card">
+            <h3>App开发</h3>
+            <p>iOS & Android 应用开发，从0到1打造产品。</p>
+        </div>
+        <div class="card">
+            <h3>软件开发</h3>
+            <p>企业系统定制开发，包括Web系统与后台。</p>
+        </div>
+        <div class="card">
+            <h3>技术咨询</h3>
+            <p>架构设计、技术选型与产品规划支持。</p>
+        </div>
     </div>
-    <div class="card">
-        <h3>软件定制</h3>
-        <p>企业系统 / 后台 / Web</p>
-    </div>
-    <div class="card">
-        <h3>技术咨询</h3>
-        <p>架构设计 / 技术选型</p>
-    </div>
-</div>
 </section>
 
-<!-- 流程 -->
-<section id="process">
-<h2>合作流程</h2>
-<div class="steps">
-    <div>1️⃣ 需求沟通</div>
-    <div>2️⃣ 方案评估</div>
-    <div>3️⃣ 快速开发</div>
-    <div>4️⃣ 上线交付</div>
-</div>
-</section>
-
-<!-- 联系（核心转化） -->
-<section id="contact">
-<h2>获取免费技术方案</h2>
-
-<div class="form-box">
-    <input type="text" placeholder="您的姓名">
-    <input type="text" placeholder="联系方式（微信/邮箱）">
-    <textarea rows="4" placeholder="简单描述您的需求"></textarea>
-    <button onclick="submitForm()">提交需求</button>
-</div>
-
-<p style="text-align:center;margin-top:20px;color:#aaa;">
-📧 postmaster@fumadev.com<br>
-📍 Room 3J, No. 5358 Huyi Highway, Jiading District, Shanghai, China
-</p>
-
+<!-- Contact -->
+<section id="contact" class="fade-in">
+    <h2>联系方式</h2>
+    <div class="contact">
+        <p>📧 postmaster@fumadev.com</p>
+        <p>📍 Room 3J, No. 5358 Huyi Highway, Jiading District, Shanghai, China</p>
+    </div>
 </section>
 
 <footer>
-© 2026 上海富码科技有限公司 FuMa Dev
+    <p>© 2026 上海富码科技有限公司 FuMa Dev</p>
 </footer>
 
 <script>
-function submitForm(){
-    alert("提交成功，我们会尽快联系您！");
+const els = document.querySelectorAll('.fade-in');
+
+function show() {
+    const trigger = window.innerHeight * 0.85;
+    els.forEach(el => {
+        if (el.getBoundingClientRect().top < trigger) {
+            el.classList.add('show');
+        }
+    });
 }
+
+window.addEventListener('scroll', show);
+window.addEventListener('load', show);
 </script>
 
 </body>
