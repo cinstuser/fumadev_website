@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>上海富码科技有限公司 | FuMa Dev</title>
+<title>Fuma Technology | FuMa Dev</title>
 
 <style>
 :root {
     --primary: #2563eb;
     --dark: #0f172a;
+    --gray-light: #f8fafc;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-    background: #f8fafc;
+    background: var(--gray-light);
     color: #333;
 }
 
@@ -34,6 +35,8 @@ nav {
     top: 0;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     z-index: 1000;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .logo {
@@ -46,11 +49,18 @@ nav {
     width: 40px;
     height: 40px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .logo-text {
     font-weight: bold;
     font-size: 18px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
 .menu {
@@ -61,6 +71,8 @@ nav {
 .menu a {
     text-decoration: none;
     color: #333;
+    transition: color 0.2s;
+    font-weight: 500;
 }
 
 .menu a:hover {
@@ -76,6 +88,7 @@ nav {
     justify-content: space-between;
     padding: 80px 40px;
     flex-wrap: wrap;
+    gap: 30px;
 }
 
 .hero-left {
@@ -85,10 +98,11 @@ nav {
 .hero h1 {
     font-size: 40px;
     margin-bottom: 20px;
+    line-height: 1.2;
 }
 
 .hero p {
-    opacity: 0.9;
+    opacity: 0.92;
     line-height: 1.7;
 }
 
@@ -103,6 +117,7 @@ nav {
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.2s;
 }
 
 .btn-primary {
@@ -110,15 +125,27 @@ nav {
     color: #2563eb;
 }
 
+.btn-primary:hover {
+    background: #eef2ff;
+    transform: translateY(-2px);
+}
+
 .btn-outline {
     border: 1px solid #fff;
     color: #fff;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
 }
 
 /* Hero Right Image */
 .hero-right img {
-    width: 320px;
+    width: 280px;
     max-width: 100%;
+    filter: drop-shadow(0 10px 12px rgba(0,0,0,0.2));
 }
 
 /* Section */
@@ -131,9 +158,11 @@ section {
 h2 {
     text-align: center;
     margin-bottom: 40px;
+    font-size: 32px;
+    color: #0f172a;
 }
 
-/* Services */
+/* Services Grid */
 .services {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -142,24 +171,42 @@ h2 {
 
 .card {
     background: #fff;
-    padding: 25px;
-    border-radius: 14px;
+    padding: 28px 22px;
+    border-radius: 20px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.05);
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    text-align: center;
 }
 
 .card:hover {
     transform: translateY(-6px);
+    box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
 }
 
 .card h3 {
     color: var(--primary);
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+
+.card p {
+    color: #475569;
+    line-height: 1.5;
 }
 
 /* Contact */
 .contact {
     text-align: center;
     line-height: 2;
+    background: white;
+    padding: 36px 24px;
+    border-radius: 32px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+}
+
+.contact p {
+    font-size: 16px;
+    word-break: break-word;
 }
 
 /* Footer */
@@ -174,7 +221,7 @@ footer {
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
-    transition: 0.8s;
+    transition: 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
 .fade-in.show {
@@ -186,99 +233,119 @@ footer {
 @media(max-width:768px){
     nav {
         padding: 15px 20px;
+        flex-direction: column;
+        align-items: flex-start;
     }
-
+    .nav-right {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    .menu {
+        gap: 18px;
+        flex-wrap: wrap;
+    }
     .hero {
         flex-direction: column;
         text-align: center;
+        padding: 50px 20px;
     }
-
+    .hero-left {
+        text-align: center;
+    }
     .hero-right {
-        margin-top: 30px;
+        margin-top: 20px;
     }
-
     .hero h1 {
         font-size: 28px;
+    }
+    .hero-buttons .btn {
+        margin: 8px 6px;
+    }
+    h2 {
+        font-size: 28px;
+    }
+}
+
+@media(max-width:480px){
+    .services {
+        grid-template-columns: 1fr;
     }
 }
 </style>
 </head>
-
 <body>
 
 <!-- Navbar -->
 <nav>
     <div class="logo">
-        <img src="logo.png" alt="FuMa Dev Logo">
+        <img src="logo.png" alt="FuMa Dev Logo" onerror="this.src='https://placehold.co/40x40?text=F'">
         <div class="logo-text">FuMa Dev</div>
     </div>
 
-    <div class="menu">
-        <a href="#about">关于我们</a>
-        <a href="#services">核心业务</a>
-        <a href="#contact">联系方式</a>
+    <div class="nav-right">
+        <div class="menu">
+            <a href="#about">About Us</a>
+            <a href="#services">Core Services</a>
+            <a href="#contact">Contact</a>
+        </div>
     </div>
 </nav>
 
-<!-- Hero -->
+<!-- Hero Section -->
 <div class="hero">
     <div class="hero-left">
-        <h1>上海富码科技有限公司</h1>
+        <h1>Fuma Technology </h1>
         <p>
-        App开发 · 软件定制 · 技术咨询<br><br>
-        我们专注于为客户提供专业、高效、可靠的技术解决方案，
-        助力企业在数字时代持续增长。
+        App Development · Custom Software · Tech Consulting<br><br>
+        We deliver professional, efficient, and reliable tech solutions to help businesses grow in the digital era.
         </p>
 
         <div class="hero-buttons">
-            <a href="#services" class="btn btn-primary">了解更多</a>
-            <a href="#contact" class="btn btn-outline">联系我们</a>
+            <a href="#services" class="btn btn-primary">Learn More</a>
+            <a href="#contact" class="btn btn-outline">Contact Us</a>
         </div>
     </div>
 
     <div class="hero-right">
-        <!-- 主视觉ICON -->
-        <img src="logo.png" alt="Icon">
+        <img src="logo.png" alt="FuMa Dev Illustration" onerror="this.src='https://placehold.co/280x280?text=FuMa+Dev'">
     </div>
 </div>
 
-<!-- About -->
+<!-- About Section -->
 <section id="about" class="fade-in">
-    <h2>关于我们</h2>
+    <h2>About FuMa Dev</h2>
     <p>
-    上海富码科技有限公司（FuMa Dev）是一家专注于移动应用开发与软件技术服务的创新型企业。
-    我们成立于上海，团队核心成员拥有多年互联网大厂及创业公司经验。
+    Shanghai Fuma Technology Co., Ltd. (FuMa Dev) is an innovative company specializing in mobile app development and software technology services. Founded in Shanghai, our core team brings years of experience from leading tech companies and startups.
     </p>
     <br>
     <p>
-    我们相信，技术不仅仅是代码的堆砌，更是解决问题的工具。
-    无论是初创团队的产品MVP（最小可行产品），还是成熟企业的数字化转型需求，
-    富码科技都能提供专业、高效、可靠的技术解决方案。
+    We believe technology is more than just code — it's a tool to solve real problems. Whether it's building an MVP for a startup or supporting the digital transformation of an established enterprise, FuMa Dev provides professional, agile, and reliable solutions.
     </p>
 </section>
 
-<!-- Services -->
+<!-- Services Section -->
 <section id="services" class="fade-in">
-    <h2>核心业务</h2>
+    <h2>Core Business</h2>
     <div class="services">
         <div class="card">
-            <h3>App开发</h3>
-            <p>iOS & Android 应用开发，从0到1打造产品。</p>
+            <h3>App Development</h3>
+            <p>iOS & Android app development, from 0 to 1 product launch.</p>
         </div>
         <div class="card">
-            <h3>软件开发</h3>
-            <p>企业系统定制开发，包括Web系统与后台。</p>
+            <h3>Software Development</h3>
+            <p>Custom enterprise systems, web platforms and backend solutions.</p>
         </div>
         <div class="card">
-            <h3>技术咨询</h3>
-            <p>架构设计、技术选型与产品规划支持。</p>
+            <h3>Tech Consulting</h3>
+            <p>Architecture design, tech stack selection and product roadmap support.</p>
         </div>
     </div>
 </section>
 
-<!-- Contact -->
+<!-- Contact Section -->
 <section id="contact" class="fade-in">
-    <h2>联系方式</h2>
+    <h2>Contact Info</h2>
     <div class="contact">
         <p>📧 postmaster@fumadev.com</p>
         <p>📍 Room 3J, No. 5358 Huyi Highway, Jiading District, Shanghai, China</p>
@@ -286,24 +353,121 @@ footer {
 </section>
 
 <footer>
-    <p>© 2026 上海富码科技有限公司 FuMa Dev</p>
+    <p>© 2026 Shanghai Fuma Technology Co., Ltd. FuMa Dev</p>
 </footer>
 
 <script>
-const els = document.querySelectorAll('.fade-in');
-
-function show() {
-    const trigger = window.innerHeight * 0.85;
-    els.forEach(el => {
-        if (el.getBoundingClientRect().top < trigger) {
-            el.classList.add('show');
-        }
-    });
+// Fade-in scroll animation
+function initFadeIn() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    function checkFade() {
+        const triggerBottom = window.innerHeight * 0.85;
+        fadeElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < triggerBottom && rect.bottom > 0) {
+                el.classList.add('show');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', checkFade);
+    window.addEventListener('resize', checkFade);
+    checkFade(); 
 }
 
-window.addEventListener('scroll', show);
-window.addEventListener('load', show);
-</script>
+// Smooth scroll for anchor links
+function setupSmoothScroll() {
+    const anchorLinks = document.querySelectorAll('.menu a, .hero-buttons a');
+    anchorLinks.forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const hash = this.getAttribute('href');
+            if (hash && hash.startsWith('#')) {
+                e.preventDefault();
+                const targetId = hash.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    history.pushState(null, null, hash);
+                }
+            }
+        });
+    });
+    
+    // If there's an initial hash in URL, scroll to it after a short delay
+    if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const el = document.getElementById(id);
+        if (el) {
+            setTimeout(() => {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 150);
+        }
+    }
+}
 
+// Graceful image fallback for logo and hero image
+function handleImageErrors() {
+    const imgs = document.querySelectorAll('img');
+    imgs.forEach(img => {
+        img.onerror = function() {
+            if (!this.dataset.fallback) {
+                this.dataset.fallback = 'true';
+                if (this.parentElement?.classList?.contains('logo')) {
+                    // For logo area, replace with styled div
+                    this.style.display = 'none';
+                    const parent = this.parentElement;
+                    const fallbackDiv = document.createElement('div');
+                    fallbackDiv.innerText = 'F';
+                    fallbackDiv.style.width = '40px';
+                    fallbackDiv.style.height = '40px';
+                    fallbackDiv.style.backgroundColor = '#2563eb';
+                    fallbackDiv.style.color = 'white';
+                    fallbackDiv.style.borderRadius = '10px';
+                    fallbackDiv.style.display = 'flex';
+                    fallbackDiv.style.alignItems = 'center';
+                    fallbackDiv.style.justifyContent = 'center';
+                    fallbackDiv.style.fontWeight = 'bold';
+                    fallbackDiv.style.fontSize = '20px';
+                    parent.insertBefore(fallbackDiv, this);
+                } else {
+                    this.src = 'https://placehold.co/280x280?text=FuMa+Dev';
+                }
+            }
+        };
+    });
+    
+    // Special handling for hero image if fails
+    const heroImg = document.querySelector('.hero-right img');
+    if (heroImg && heroImg.complete && heroImg.naturalWidth === 0) {
+        heroImg.onerror();
+    }
+}
+
+// Ensure logo fallback works after load
+function enhanceLogoFallback() {
+    const logoImgElement = document.querySelector('.logo img');
+    if (logoImgElement && logoImgElement.complete && logoImgElement.naturalWidth === 0) {
+        logoImgElement.onerror();
+    }
+}
+
+// Run all initializers
+document.addEventListener('DOMContentLoaded', () => {
+    initFadeIn();
+    setupSmoothScroll();
+    handleImageErrors();
+    enhanceLogoFallback();
+});
+
+// Small extra: trigger scroll after window fully loads to show any content hidden below fold
+window.addEventListener('load', () => {
+    window.dispatchEvent(new Event('scroll'));
+    enhanceLogoFallback();
+});
+</script>
 </body>
 </html>
