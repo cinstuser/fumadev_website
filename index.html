@@ -1640,6 +1640,14 @@ function closeModalOnBackdrop(event, id) {
         closeModal(id);
     }
 }
+
+/* 锚点自动弹窗控制（适配 App Store Connect URL） */
+window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'privacyModal' || hash === 'termsModal') {
+        openModal(hash);
+    }
+});
 </script>
 </body>
 </html>
