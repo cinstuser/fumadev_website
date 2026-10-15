@@ -1037,8 +1037,8 @@ main {
         <nav class="nav-links" aria-label="Primary">
             <a href="#about">About Us</a>
             <a href="#apps">Our Apps</a>
-            <a href="javascript:void(0)" onclick="openModal('privacyModal')">Privacy Policy</a>
-            <a href="javascript:void(0)" onclick="openModal('termsModal')">Terms of Service</a>
+            <a href="javascript:void(0)" onclick="openModal('privacy')">Privacy Policy</a>
+            <a href="javascript:void(0)" onclick="openModal('terms')">Terms of Service</a>
             <a href="#contact" class="nav-cta">Contact Us</a>
         </nav>
     </div>
@@ -1346,9 +1346,9 @@ main {
 </main>
 
 <!-- Privacy Policy Modal Overlay -->
-<div id="privacyModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'privacyModal')">
+<div id="privacy" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'privacy')">
     <div class="modal-content">
-        <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
+        <button class="modal-close" onclick="closeModal('privacy')">&times;</button>
         <article class="legal-article">
             <h1>Aio Camera – Privacy Policy</h1>
             <span class="effective-date">Effective Date: 01/15/2025</span>
@@ -1449,9 +1449,9 @@ main {
 </div>
 
 <!-- Terms of Service Modal Overlay -->
-<div id="termsModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'termsModal')">
+<div id="terms" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'terms')">
     <div class="modal-content">
-        <button class="modal-close" onclick="closeModal('termsModal')">&times;</button>
+        <button class="modal-close" onclick="closeModal('terms')">&times;</button>
         <article class="legal-article">
             <h1>Aio Camera Application Terms of Service</h1>
             <span class="effective-date">Last Updated: Jan 2025</span>
@@ -1641,13 +1641,16 @@ function closeModalOnBackdrop(event, id) {
     }
 }
 
-/* 锚点自动弹窗控制（适配 App Store Connect URL） */
-window.addEventListener('DOMContentLoaded', () => {
+/* 锚点自动弹窗控制（支持 #privacy 与 #terms） */
+function checkHashAndOpenModal() {
     const hash = window.location.hash.replace('#', '');
-    if (hash === 'privacyModal' || hash === 'termsModal') {
+    if (hash === 'privacy' || hash === 'terms') {
         openModal(hash);
     }
-});
+}
+
+window.addEventListener('DOMContentLoaded', checkHashAndOpenModal);
+window.addEventListener('hashchange', checkHashAndOpenModal);
 </script>
 </body>
 </html>
